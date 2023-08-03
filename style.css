@@ -1,0 +1,132 @@
+:root {
+    font-size: 62.5%;
+    font-family: "Ubuntu Condensed", sans-serif;
+    --text-primary: black;
+    --text-secondary: white;
+    --bg-primary: #23232e;
+    --bg-secondary: #141418;
+    --transition-speed: 1s;
+    --drawer-color: #0ea5e9;
+    --drawer-width: clamp(260px, 20vw, 310px);
+    --nav-bg-1: #f8f8f8;
+    --nav-color-1: #c9c9c9;
+    --nav-color-2: #62daff6e;
+    --blue-1: #084c61;
+    --gh-avatar: url("https://github.com/dtoomey156.png");
+    --gh-avatar2: url("https://github.com/james.png");
+    --gh-avatar3: url("https://github.com/bob.png");
+    --gh-avatar: url("https://github.com/alice.png");
+    --gh-avatar: url("https://github.com/amy.png");
+    --content-gray: rgb(235,235,235);
+    --transition-notDrawer: margin-left 0.4s ease-in;
+    --transition-drawer: width 0.4s ease-in;
+}
+
+* {
+    font-size: 1.6rem;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-areas: 
+    "drawer nav nav nav"
+    "drawer content content content";
+    grid-template-rows: .8fr 4fr;
+    grid-template-columns: auto 1fr 1fr 1fr;
+}
+
+.drawer {
+    grid-area: drawer;
+    background-color: var(--drawer-color);
+    width: clamp(60px, (82px + .7vw), 107px);
+    position: fixed;
+    transition: var(--transition-drawer);
+    overflow: hidden;
+    height: 100vh;
+}
+
+.drawer:hover {
+    width: var(--drawer-width);
+}
+/* Selects only the top drawer item */
+.drawer > div:nth-child(1) > h1 {
+    display: none;
+    margin-left: calc(.25rem + .2vw);
+} 
+
+
+/* Selects all drawer items excluding the top item */
+.drawer > *:not(:first-child) > h1 {
+    display: none;
+    margin-left: calc(3rem + .2vw);
+}
+
+
+
+.drawer:hover > .menuItem > h1 {
+    display: flex;
+}
+
+.menuItem {
+    color: var(--text-secondary);
+    display: flex;
+    /* flex-direction: row; */
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: calc(1rem + 1vw);
+
+}
+
+.menuItem > * {
+    cursor: pointer;
+
+}
+
+.drawer > *:not(:first-child) > * {
+    font-size: calc(2rem + 0.2vw);
+}
+
+.drawer > *:not(:first-child) > img {
+    width: calc(5rem + 0.5vw);
+    height: calc(5rem + 0.5vw);
+    padding-left: 2.5rem;
+    /* margin-top: calc(1rem + 1vw); */
+    /* margin: auto; */
+}
+
+.drawer > div:nth-child(8) {
+    padding-top: 6rem;
+}
+
+.dashboard > h1 {
+    /* font-size: clamp(.25rem, calc(3rem + 1vw), 5rem ); */
+    /* font-size: calc(3rem + .2vw); */
+    font-size: calc(3rem + .2vw);
+}
+
+.dashboard img {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    /* width: clamp( .5rem, calc(6rem + .5vw) ,calc(8rem + .7vw));
+    height: clamp( .5rem, calc(6rem + .5vw) ,calc(8rem + .7vw)); */
+    width: calc(8rem + .7vw);
+    height: calc(8rem + .7vw);
+    /* padding-left: 10px;
+    padding-top: 10px; */
+}
+
+.navbar {
+    grid-area: nav;
+}
+
+.content {
+    grid-area: content;
+}
+
+
+
+
